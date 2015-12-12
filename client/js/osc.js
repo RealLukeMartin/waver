@@ -1,6 +1,8 @@
-(function(){
-	
-	var on = 0;
+	var drum = new Wad({ 
+		source : 'dubbeat.wav', 
+		label : 'D', 
+		loop  : true
+	});
 	var saw = new Wad({
 	  source : 'sawtooth',
 		volume  : 0.8,
@@ -17,18 +19,23 @@
 			attack    : 0  
 		}
   })
+  saw.on = 0;
+  drum.on = 0;
 
 	Template.synth.events({
 	  'click button': function () {
-			if ( on === 0 ) {
+			if ( saw.on === 0 ) {
 				saw.play({ volume : 0.8 });
-				on = 1;
+				saw.on = 1;
 			}
 			else {
 				saw.stop();
-				on = 0;
+				saw.on = 0;
 			}
 	  }
 	});
-
-})();
+	Template.drums.events({
+  'click button': function () {
+    drum.play({ loop  : true });
+  }
+});
