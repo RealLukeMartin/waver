@@ -1,1 +1,37 @@
-/* CSS declarations go here */
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,100);
+* {
+	box-sizing: border-box;
+}
+body, html {
+	background: #FFFBF3;
+}
+h1, button {
+	font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+}
+h1 {
+	text-align: center;
+	color: #332E30;
+}
+.play-area {
+	max-width: 740px;
+	margin: 0 auto;
+}
+button {
+	width: 49%;
+	height: 50px;
+	color: #f8f8f8;
+	background: #332E30;
+	font-size: 16px;
+	border: 1px solid #332E30;
+	transition: all .5s;
+	-webkit-transition: all .5s;
+}
+button:hover {
+  box-shadow: 2px 4px 7px 0px #332E30;
+  text-shadow: 1px 1px 0 #000;
+  cursor: pointer;
+}
+button:focus {
+	outline: none;
+}

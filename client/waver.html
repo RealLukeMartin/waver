@@ -4,12 +4,14 @@
 
 <body>
   <h1>Waver</h1>
-  {{> play}}
+  <div class="play-area">
+    {{> play}}
+  </div>
 </body>
 
 <template name="play">
-	{{> drums}}
 	{{> oscillator}}
+	{{> drums}}
 </template>
 
 <template name="drums">

@@ -19,8 +19,8 @@ var oscillator = new Wad({
     attack    : 0
   }
 });
-oscillator.on = 0;
 drums.on = 0;
+oscillator.on = 0;
 
 Template.play.events({
   'click button': function () {
