@@ -2,7 +2,7 @@ var drums = new Wad({
   source : 'dubbeat.wav',
   label : 'D',
   loop  : true
-});
+})
 var oscillator = new Wad({
   source : 'sawtooth',
   volume  : 0.8,
@@ -18,7 +18,7 @@ var oscillator = new Wad({
     speed     : 2,
     attack    : 0
   }
-});
+})
 drums.on = 0;
 oscillator.on = 0;
 
@@ -27,7 +27,10 @@ Template.play.events({
     var clickedInstrument = event.target.innerHTML.toLowerCase();
     var instrumentObject = eval(clickedInstrument);
     if ( instrumentObject.on === 0 ) {
-      instrumentObject.play({ volume : 0.8 });
+      instrumentObject.play({ 
+        volume : 0.8,
+        env : {hold : 9001}
+      })
       instrumentObject.on = 1;
     }
     else {
