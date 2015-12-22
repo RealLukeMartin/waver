@@ -8,7 +8,14 @@
 </body>
 
 <template name="play">
-  <button>Drums</button>
-  <button>Oscillator</button>
+	{{> drums}}
+	{{> oscillator}}
 </template>
 
+<template name="drums">
+	<button>Drums</button>
+</template>
+
+<template name="oscillator">
+	<button>Oscillator</button>
+</template>
