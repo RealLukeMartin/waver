@@ -11,11 +11,10 @@ var oscillator = new Wad({
   label   : 'C',   // A label that identifies this note.
   env     : {hold : 3.14},
   panning : [1, -1, 10],
-  filter  : {frequency : 900},
   tremolo : {
     shape     : 'sine',
     magnitude : 10,
-    speed     : 2,
+    speed     : 4,
     attack    : 0
   }
 })
