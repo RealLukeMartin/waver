@@ -1,6 +1,5 @@
 var drums = new Wad({
   source : 'dubbeat.wav',
-  label : 'D',
   loop  : true
 })
 var oscillator = new Wad({
