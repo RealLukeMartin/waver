@@ -3,11 +3,20 @@ var drums = new Wad({
   loop  : true
 })
 var oscillator = new Wad({
-  source : 'sawtooth',
+  source : 'square',
   volume  : 0.8,
-  wait    : 0,     // Time in seconds between calling play() and actually triggering the note.
-  pitch   : 'C2',  // A4 is 440 hertz.
-  label   : 'C',   // A label that identifies this note.
+  wait    : 0,
+  pitch   : 'C2',
+  filter  : {
+      type      : 'lowpass',
+      frequency : 200, 
+      q         : 1,
+      env       : {
+          frequency : 800,
+          attack    : 1
+      }
+  },
+  label   : 'C',
   env     : {hold : 3.14},
   panning : [1, -1, 10],
   tremolo : {
