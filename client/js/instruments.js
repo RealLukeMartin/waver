@@ -27,15 +27,15 @@ oscillator.on = 0;
 
 Template.play.events({
   'click button': function () {
-    var clickedInstrument = event.target.innerHTML.toLowerCase();
+    var clickedInstrument = event.target.id;
     var instrumentObject = eval(clickedInstrument);
-    var $filter = $('#osc-filter');
+    var $oscillatorFilter = $('#osc-filter');
     if ( instrumentObject.on === 0 ) {
       instrumentObject.play({ 
         volume : 0.8,
         filter  : {
             type      : 'lowpass',
-            frequency : $filter.val(),
+            frequency : $oscillatorFilter.val(),
             q         : 1
         },
         env : {hold : 9001}
@@ -48,19 +48,20 @@ Template.play.events({
     }
   }
 });
+
 Template.modify.events({
   'mouseup input': function() {
-    var newEffectValue = event.target.value;
+    var effectInput = event.target;
     if (oscillator.on === 1){
+      console.log(event.target.id);
       oscillator.stop();
       oscillator.play({
         filter  : {
             type      : 'lowpass',
-            frequency : newEffectValue,
+            frequency : effectInput.value,
             q         : 1
         }
       })
     }
   }
 });
-

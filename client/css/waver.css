@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,100);
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,100);
 * {
 	box-sizing: border-box;
 }
@@ -14,7 +14,9 @@ h1 {
 	color: #332E30;
 }
 label {
-	font-weight: 400;
+	display: block;
+	font-weight: 300;
+	margin-top: 16px;
 }
 .container {
 	position: relative;
@@ -37,6 +39,23 @@ button:hover {
   text-shadow: 1px 1px 0 #000;
   cursor: pointer;
 }
-button:focus {
+button:focus, input:focus {
 	outline: none;
+}
+input {
+	margin-bottom: 16px;
+}
+input[type="range"] {
+	-webkit-appearance: none;
+	background: #332E30;
+	height: 1px;
+	width: 48%;
+}
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: 1px solid #332E30;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: #fff;
 }

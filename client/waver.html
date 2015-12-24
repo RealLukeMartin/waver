@@ -17,15 +17,28 @@
 	{{> drums}}
 </template>
 
-<template name="modify">
-	<label for="filter">Filter</label>
-	<input type="range" id="osc-filter" class="filter" min="200" max="10000" name="filter" />
-</template>
-
 <template name="drums">
-	<button>Drums</button>
+	<button id="drums">Drums</button>
 </template>
 
 <template name="oscillator">
-	<button>Oscillator</button>
+	<button id="oscillator">Oscillator</button>
+</template>
+
+<template name="modify">
+	<div class="oscillator-area">
+    {{> oscillatorfilter}}
+  </div>
+</template>
+
+<template name="oscillatorfilter">
+  <label for="osc-filter">Filter</label>
+  <input type="range" id="osc-filter" class="filter" min="200" max="10000" name="osc-filter" />
+</template>
+
+<template name="oscillatorspeed">
+	<div class="oscillator-area">
+	  <label for="osc-speed">Speed</label>
+	  <input type="range" id="osc-speed" class="filter" min="1" max="12" name="osc-speed" />
+  </div>
 </template>
