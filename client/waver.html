@@ -4,14 +4,22 @@
 
 <body>
   <h1>Waver</h1>
-  <div class="play-area">
+  <div class="play-area container">
     {{> play}}
+  </div>
+  <div class="modify-area container">
+    {{> modify}}
   </div>
 </body>
 
 <template name="play">
 	{{> oscillator}}
 	{{> drums}}
+</template>
+
+<template name="modify">
+	<label for="filter">Filter</label>
+	<input type="range" id="osc-filter" class="filter" min="200" max="10000" name="filter" />
 </template>
 
 <template name="drums">

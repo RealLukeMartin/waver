@@ -5,17 +5,22 @@
 body, html {
 	background: #FFFBF3;
 }
-h1, button {
+h1, button, label {
 	font-family: 'Roboto', sans-serif;
-  font-weight: 100;
+	font-weight: 100;
 }
 h1 {
 	text-align: center;
 	color: #332E30;
 }
-.play-area {
+label {
+	font-weight: 400;
+}
+.container {
+	position: relative;
 	max-width: 740px;
 	margin: 0 auto;
+	padding: 30px 10px;
 }
 button {
 	width: 49%;

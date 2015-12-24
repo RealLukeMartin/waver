@@ -3,18 +3,14 @@ var drums = new Wad({
   loop  : true
 })
 var oscillator = new Wad({
-  source : 'square',
+  source : 'sawtooth',
   volume  : 0.8,
   wait    : 0,
   pitch   : 'C2',
   filter  : {
       type      : 'lowpass',
-      frequency : 200, 
-      q         : 1,
-      env       : {
-          frequency : 800,
-          attack    : 1
-      }
+      frequency : 10000,
+      q         : 1
   },
   label   : 'C',
   env     : {hold : 3.14},
@@ -33,9 +29,15 @@ Template.play.events({
   'click button': function () {
     var clickedInstrument = event.target.innerHTML.toLowerCase();
     var instrumentObject = eval(clickedInstrument);
+    var $filter = $('#osc-filter');
     if ( instrumentObject.on === 0 ) {
       instrumentObject.play({ 
         volume : 0.8,
+        filter  : {
+            type      : 'lowpass',
+            frequency : $filter.val(),
+            q         : 1
+        },
         env : {hold : 9001}
       })
       instrumentObject.on = 1;
@@ -46,3 +48,19 @@ Template.play.events({
     }
   }
 });
+Template.modify.events({
+  'mouseup input': function() {
+    var newEffectValue = event.target.value;
+    if (oscillator.on === 1){
+      oscillator.stop();
+      oscillator.play({
+        filter  : {
+            type      : 'lowpass',
+            frequency : newEffectValue,
+            q         : 1
+        }
+      })
+    }
+  }
+});
+
