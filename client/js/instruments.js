@@ -42,10 +42,16 @@ Template.play.events({
         env : {hold : 9001}
       })
       instrumentObject.on = 1;
+      if ( clickedInstrument == "oscillator" ) {
+        $('.oscillator-area').addClass('show');
+      }
     }
     else {
       instrumentObject.stop();
       instrumentObject.on = 0;
+      if ( clickedInstrument == "oscillator" ) {
+        $('.oscillator-area').removeClass('show');
+      }
     }
   }
 });
@@ -53,14 +59,11 @@ Template.play.events({
 Template.modify.events({
   'mouseup input': function() {
     var effectInput = event.target;
-    var bridgeFrequency = $('#osc-filter').val();
 
     if (oscillator.on === 1){
       if (effectInput.id == 'osc-speed') {
         oscillator.tremolo.speed = effectInput.value;
-        console.log(oscillator.tremolo.speed);
       }
-      console.log(event.target.id);
       oscillator.stop();
       oscillator.play({ 
         filter : {
