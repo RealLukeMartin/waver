@@ -9,7 +9,7 @@ var oscillator = new Wad({
   pitch   : 'C2',
   filter  : {
       type      : 'lowpass',
-      frequency : 10000,
+      frequency : 1000,
       q         : 1
   },
   label   : 'C',

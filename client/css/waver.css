@@ -59,11 +59,3 @@ input[type=range]::-webkit-slider-thumb {
     border-radius: 50%;
     background: #fff;
 }
-.oscillator-area {
-	opacity: 0.9;
-	transition: all .5s ease-in;
-	-webkit-transition: all .5s ease-in;
-}
-.oscillator-area.show {
-	opacity: 1;
-}
