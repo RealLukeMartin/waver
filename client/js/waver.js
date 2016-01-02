@@ -6,7 +6,7 @@ var Waver = function() {
 };
 Waver.prototype.filter = tsw.filter({
 	type: 'lowpass',
-	frequency: 400,
+	frequency: 600,
 	Q: 1
 });
 //Oscillator Instruments
@@ -19,8 +19,8 @@ Template.play.events({
     var instrObj = eval(clickedInstrument);
     
     if ( instrObj.on == false ) {
-    	instrObj.wave = tsw.osc(600, 'square');
-    	tsw.connect(instrObj.wave, instrObj.filter ,instrObj.volume, tsw.speakers);
+    	instrObj.wave = tsw.osc(440, 'sawtooth');
+    	tsw.connect(instrObj.wave, instrObj.filter, instrObj.volume, tsw.speakers);
     	instrObj.wave.start();
     	instrObj.on = true;
     }
@@ -30,4 +30,8 @@ Template.play.events({
     	instrObj.on = false;
     }
 	}
+});
+
+Template.modify.events({
+
 });
