@@ -1,6 +1,6 @@
 var drums = new Wad({
   source : 'dubbeat.wav',
-  volume : 0.3,
+  volume : 0.8,
   loop  : true,
   env : {
     attack : 0.0,
