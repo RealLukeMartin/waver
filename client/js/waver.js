@@ -3,12 +3,12 @@ var Waver = function() {
 	this.on = false;
 	this.volume = tsw.gain(0.25); //Full volume is 1.0
 	this.wave;
-    this.filter = tsw.filter({
-        type: 'lowpass',
-        frequency: 600,
-        Q: 1
-    });
-    this.lfo = tsw.lfo(3);
+  this.filter = tsw.filter({
+      type: 'lowpass',
+      frequency: 600,
+      Q: 1
+  });
+  this.lfo = tsw.lfo(3);
 };
 //Oscillator Instruments
 var oscillator = new Waver();
