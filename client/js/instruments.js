@@ -1,3 +1,5 @@
+var tempo = 140;
+var beatTime = tempo/60;
 var drums = new Wad({
   source : 'dubbeat.wav',
   loop  : true
@@ -18,12 +20,15 @@ var oscillator = new Wad({
   tremolo : {
     shape     : 'sine',
     magnitude : 10,
-    speed     : 3,
+    speed     : 1 * beatTime,
     attack    : 0
   }
 })
-drums.on = 0;
-oscillator.on = 0;
+var instruments = [];
+instruments.push(drums, oscillator);
+instruments.forEach(function(entry) {
+  entry.on = 0;
+});
 
 Template.play.events({
   'click button': function () {
@@ -62,7 +67,7 @@ Template.modify.events({
 
     if (oscillator.on === 1){
       if (effectInput.id == 'osc-speed') {
-        oscillator.tremolo.speed = effectInput.value;
+        oscillator.tremolo.speed = (effectInput.value / 250) * beatTime;
       }
       oscillator.stop();
       oscillator.play({ 
